@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
 .App {
   text-align: center;
+  background-color: #d8d5d8;
+  width: 100vw;
+  height: 100vh;
 }
 
 .App-logo {
