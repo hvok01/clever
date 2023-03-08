@@ -1,0 +1,13 @@
+.ItemList {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ItemList .ItemContainer {
+    width: 40%;
+}
