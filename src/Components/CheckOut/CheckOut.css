@@ -1,0 +1,102 @@
+.checkout {
+    margin: 0;
+}
+
+.checkout .checkoutEmpty {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    color: black;
+    text-decoration: none;
+}
+
+.checkout .checkoutEmpty h1 {
+    margin: 0;
+    font-family: 'Gloock', serif;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.checkout .checkoutEmpty a {
+    margin: 0;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #4a4a4a;
+}
+
+.checkout .checkoutEmpty a:hover {
+    text-decoration: underline;
+}
+
+.checkout .checkoutInfo {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.checkout .checkoutInfo .clearCheckout {
+    margin: 0;
+    display: flex;
+    margin-top: 20px;
+}
+
+.checkout .checkoutInfo .clearCheckout button {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    margin: 0 10px;
+    background: #e1e1e1;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.checkout .checkoutInfo .checkoutMainTitle {
+    margin: 0;
+}
+
+.checkout .checkoutInfo .checkoutSubtititle {
+    margin: 0;
+}
+
+.checkout .checkoutInfo .checkoutItem {
+    margin: 20px;
+    display: flex;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 60vw;
+}
+
+.checkout .checkoutInfo .checkoutItem .checkoutItemTitle {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout .checkoutInfo .checkoutItem .checkoutItemDetail {
+    flex: 1;
+}
+
+.checkout .checkoutInfo .checkoutItem .checkoutItemDetail .removeItemCheckout button {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    background: #e1e1e1;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.checkout .checkoutInfo .checkoutItem .checkoutItemTitle .checkoutItemImage img {
+    margin: 0;
+    width: 200px;
+    height: auto;
+}

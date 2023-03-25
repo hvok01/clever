@@ -1,9 +1,10 @@
 .Item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 9.5rem;
+    max-height: 40vh;
 }
 
 .Item .ItemImageContainer img {
@@ -12,39 +13,86 @@
     object-fit: cover;
 }
 
-.Item .ItemInfoContainer {
+.Item .ItemDetail {
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    padding: 0px 20px;
+}
+
+.Item .ItemDetail .ItemInfoContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 4rem;
 }
 
-.Item .ItemInfoContainer span h1 {
+.Item .ItemDetail .ItemInfoContainer span h1 {
     font-size: 1rem;
     text-align: center;
 }
 
-.Item .ItemInfoContainer p {
+.Item .ItemDetail .ItemInfoContainer p {
     font-size: .8rem;
     padding: 0px 20px;
 }
 
-.Item .ItemInfoContainer .ItemProductLink {
+.Item .ItemDetail .ItemInfoContainer .ItemProductLink {
     padding: 10px;
     border: 1px solid #e1e1e1;
     border-radius: 10px;
 }
 
-.Item .ItemInfoContainer .ItemProductLink:hover {
+.Item .ItemDetail .ItemInfoContainer .ItemProductLink:hover {
     background-color: #f0f0f0;
     cursor: pointer;
 }
 
-.Item .ItemInfoContainer .ItemProductLink .ItemLink {
+.Item .ItemDetail .ItemInfoContainer .ItemProductLink .ItemLink {
     margin: 0;
     color: black;
     text-decoration: none;
     text-transform: capitalize;
     position: relative;
     top: -2px;
+}
+
+.Item .ItemDetail .ItemAddToCartContainer {
+    display: flex;
+    margin: 0 auto;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Item .ItemDetail .ItemAddToCartContainer .ItemDetailActionsContainer {
+    margin: 0;
+}
+
+.Item .ItemDetail .ItemAddToCartContainer .ItemDetailAddToCartContainer {
+    margin: 0;
+}
+
+.Item .ItemDetail .ItemAddToCartContainer .ItemDetailActionsContainer button, .Item .ItemDetail .ItemAddToCartContainer .ItemDetailAddToCartContainer button {
+    margin: 0;
+    padding: 10px;
+    border: none;
+    margin: 0 10px;
+    background: #e1e1e1;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.Item .ItemDetail .ItemAddToCartContainer .ItemDetailActionsContainer button:disabled, .Item .ItemDetail .ItemAddToCartContainer .ItemDetailAddToCartContainer button:disabled {
+    background: #f5f3f3;
+    color: #8b8b8b;
+    cursor: default;
+}
+
+.Item .ItemDetail .gotToCheckOutPageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -1,8 +1,39 @@
 import React from 'react';
-import { MockData } from '../../MockData/MockData';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 import { useParams } from 'react-router-dom'
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { firebaseConfig } from '../../Config/DBConfig';
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// async await
+//1. Obtener la referencia a mi colección "products"
+//2. Llamamos a getDocs con dicha colección
+//3. Dentro de la respuesta tenemos un array de documentos
+//4. Extraemos los datos con doc.data()
+async function getItemsFromDatabase() {
+  const productsColectionRef = collection(db, "products");
+  let snapshotProducts = await getDocs(productsColectionRef);
+  const documents = snapshotProducts.docs;
+
+  const dataProducts = documents.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return dataProducts;
+}
+
+async function getItemsByCategoryFromDatabase(categoryURL) {
+  const productsColectionRef = collection(db, "products");
+
+  const q = query(productsColectionRef, where("category", "==", Number(categoryURL)));
+
+  let snapshotProducts = await getDocs(q);
+  const documents = snapshotProducts.docs;
+  const dataProducts = documents.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return dataProducts;
+}
 
 function ItemListContainer({greetings}) {
 
@@ -20,16 +51,13 @@ function ItemListContainer({greetings}) {
 
   const getData = async (id) => {
     setLoader(true);
-    const mkPromise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        let items = id ? MockData.filter((item) => item.category === Number(id)) : MockData;
-        resolve(items);
-      }, 2000);
-    });
-    mkPromise.then((results) => {
-      setResults(results);
+    let allItems = id ? await getItemsByCategoryFromDatabase(id) : await getItemsFromDatabase();
+    if(allItems) {
+      setResults(allItems);
       setLoader(false);
-    });
+    } else {
+      setLoader(false);
+    }
   };
 
   return (
