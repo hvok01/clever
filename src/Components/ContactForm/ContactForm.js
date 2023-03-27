@@ -1,13 +1,47 @@
 import React from "react";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  addDoc
+} from "firebase/firestore";
+import { firebaseConfig } from "../../Config/DBConfig";
 import "./ContactForm.css";
+import cartContext from "../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export async function createOrder(orderData) {
+  const collectionRef = collection(db, "orders");
+  const response = await addDoc(collectionRef, orderData);
+  return response.id;
+}
 
 function ContactForm() {
   const [form, setForm] = React.useState({name: "", email: "", phone: ""});
   const [validForm, setValidForm] = React.useState(false);
+  const { cart, clear, getTotalPrice } = React.useContext(cartContext);
+  const navigateTo = useNavigate();
 
   React.useEffect(() => {
     setValidForm(Object.values(form).some(value => value === ''));
   },[form]);
+
+  async function handleCheckout() {
+    let total = getTotalPrice();
+    const orderData = {
+      buyer: form,
+      items: cart,
+      total: total,
+      timestamp: new Date(),
+    };
+    //se puede guardar id.
+    await createOrder(orderData);
+    clear();
+    navigateTo(`/thanks`);
+  }
 
   const handleOnchangeForm = (event) => {
     let value = event.target.value;
@@ -18,7 +52,7 @@ function ContactForm() {
   };
 
   const handleSendFormButton = () => {
-    alert("Se genero la orden!");
+    handleCheckout();
   };
 
   return (

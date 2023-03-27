@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import ContactForm from "../ContactForm/ContactForm";
 
 function CheckOut() {
-  const { removeItem, clear, cart } = React.useContext(cartContext);
+    const [totalPrice, setTotalPrice] = React.useState(0);
+  const { removeItem, clear, cart, getTotalPrice } = React.useContext(cartContext);
+
+  React.useEffect(() => {
+    setTotalPrice(getTotalPrice());
+  },[getTotalPrice]);
 
   return (
     <div className="checkout">
@@ -40,6 +45,10 @@ function CheckOut() {
                     )
                 })
             }
+            <h1>
+                Costo total: $
+                { totalPrice }
+            </h1>
             <ContactForm />
             <div className="clearCheckout">
                 <p>Te arrepentiste de tu compra?. podes vaciar tu carrito desde aca:</p>

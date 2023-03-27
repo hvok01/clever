@@ -57,9 +57,20 @@ function CartContextProvider(props) {
     return total;
   }
 
+  function getTotalPrice() {
+    /* reduce */
+    let total = 0;
+    cart.forEach((item) => {
+      if(item.price) {
+        total += (item.price * item.count);
+      }
+    });
+    return total;
+  }
+
   return (
     // 5 pasar la prop value
-    <cartContext.Provider value={{ cart, addItem, updateItem, removeItem, clear, getCountInCart }}>
+    <cartContext.Provider value={{ cart, addItem, updateItem, removeItem, clear, getCountInCart, getTotalPrice }}>
       {props.children}
     </cartContext.Provider>
   );

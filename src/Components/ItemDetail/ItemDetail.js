@@ -67,6 +67,7 @@ function ItemDetail({ item }) {
             <h1>{item.title}</h1>
           </span>
           <p>{item.detail}</p>
+          <p>precio: ${item.price}</p>
         </div>
         <div className="ItemAddToCartContainer">
           <div className="ItemDetailActionsContainer">

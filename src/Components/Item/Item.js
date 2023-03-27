@@ -18,6 +18,9 @@ function Item({item}) {
             <p>
                 { item.detail }
             </p>
+            <p>
+                precio: ${ item.price }
+            </p>
             <span className="ItemProductLink">
                 <Link to={`/product/${item.id}`} className="ItemLink">more</Link>
             </span>
