@@ -16,8 +16,8 @@ function CheckOut() {
     <div className="checkout">
       {cart.length > 0 ? (
         <div className="checkoutInfo">
-            <h1 className="checkoutMainTitle">Finaliza tu compra.</h1>
-            <p className="checkoutSubtititle">Tambien podes remover elementos de tu carrito si ya no lo queres!</p>
+            <h1 className="checkoutMainTitle">Finish your shopping.</h1>
+            <p className="checkoutSubtititle">You can remove items if you change your mind!</p>
             {
                 cart.map((item, key) => {
                     return (
@@ -29,16 +29,16 @@ function CheckOut() {
                             </div>
                             <div className="checkoutItemDetail">
                                 <p>
-                                    Producto: {item.title}
+                                    Product: {item.title}
                                 </p>
                                 <p>
-                                    Detalle del producto: {item.detail}
+                                    Details: {item.detail}
                                 </p>
                                 <p>
-                                    Cantidad: {item.count}
+                                    Amount: {item.count}
                                 </p>
                                 <div className="removeItemCheckout">
-                                    <button onClick={() => removeItem(item.id, item.title)}>Remover</button>
+                                    <button onClick={() => removeItem(item.id, item.title)}>Remove</button>
                                 </div>
                             </div>
                         </div>
@@ -46,21 +46,21 @@ function CheckOut() {
                 })
             }
             <h1>
-                Costo total: $
+                total cost: $
                 { totalPrice }
             </h1>
             <ContactForm />
             <div className="clearCheckout">
-                <p>Te arrepentiste de tu compra?. podes vaciar tu carrito desde aca:</p>
+                <p>Empty your cart from here:</p>
                 <button onClick={clear}>
-                    Vaciar carrito.
+                    Empty cart.
                 </button>
             </div>
         </div>
       ) : (
         <div className="checkoutEmpty">
-          <h1>No hay elementos en el carrito:</h1>
-          <Link to={"/"}>Empeza a comprar haciendo click aca</Link>
+          <h1>There's no elements on the cart:</h1>
+          <Link to={"/"}>Start shopping clicking here!</Link>
         </div>
       )}
     </div>

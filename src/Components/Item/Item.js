@@ -19,10 +19,10 @@ function Item({item}) {
                 { item.detail }
             </p>
             <p>
-                precio: ${ item.price }
+                price: ${ item.price }
             </p>
             <span className="ItemProductLink">
-                <Link to={`/product/${item.id}`} className="ItemLink">more</Link>
+                <Link to={`/product/${item.id}`} className="ItemLink">More</Link>
             </span>
         </div>
     </div>

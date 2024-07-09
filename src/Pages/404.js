@@ -6,7 +6,7 @@ function NotFound() {
   return (
     <div className='NotFoundContainer'>
         404
-        <Link to={`/`}>Volver</Link>
+        <Link to={`/`}>Go back</Link>
     </div>
   )
 }

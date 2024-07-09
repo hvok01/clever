@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 function Thanks() {
   return (
     <div className='thanks'>
-        <h1>Gracias por tu compra!</h1>
-        <p>Podes seguir revisando nuestors productos desde <Link to={`/`}>aca</Link> </p>
+        <h1>Thank you!</h1>
+        <p>Keep shopping from <Link to={`/`}>here</Link> </p>
     </div>
   )
 }

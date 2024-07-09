@@ -20,7 +20,7 @@ function ItemDetail({ item }) {
   },[success]);
 
   const addToCart = (counterValue, item) => {
-    setSuccess(`Agregaste: ${counterValue} ${item.title} al carrito.`)
+    setSuccess(`You added: ${counterValue} ${item.title} to the cart.`)
     let itemAlreadyExistInCart = cart.some(
       (it) => it.title === item.title && it.id === item.id
     );
@@ -40,7 +40,7 @@ function ItemDetail({ item }) {
       setError("");
       setCounterValue(Number(e.target.value));
     } else {
-      setError("Esta cantidad supera el stock");
+      setError("that amount is off the stock");
       setCounterValue(Number(e.target.value));
     }
   };
@@ -67,7 +67,7 @@ function ItemDetail({ item }) {
             <h1>{item.title}</h1>
           </span>
           <p>{item.detail}</p>
-          <p>precio: ${item.price}</p>
+          <p>price: ${item.price}</p>
         </div>
         <div className="ItemAddToCartContainer">
           <div className="ItemDetailActionsContainer">
@@ -96,7 +96,7 @@ function ItemDetail({ item }) {
               onClick={() => addToCart(counterValue, item)}
               disabled={error.length > 0 || counterValue === 0}
             >
-              Agregar al carrito
+              Add to cart
             </button>
           </div>
           <span>{error ? <div>{error}</div> : null}</span>
@@ -104,7 +104,7 @@ function ItemDetail({ item }) {
         </div>
         {cart && cart.length > 0 ? (
           <div className="gotToCheckOutPageContainer">
-            <Link to={"/checkout"}>Finalizar compra</Link>
+            <Link to={"/checkout"}>Finish</Link>
           </div>
         ) : null}
       </div>

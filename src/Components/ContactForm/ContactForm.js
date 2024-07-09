@@ -58,28 +58,27 @@ function ContactForm() {
   return (
     <div className="contactForm">
       <div className="contactFormHeader">
-        <h1>Completa tus datos</h1>
+        <h1>fill out with your information</h1>
         <p>
-          Te enviaremos la informacion de envio a tu correo en las proximas
-          24hs.
+          We'll send you the information within the next 1 hour.
         </p>
       </div>
       <div className="contactFormContainer">
         <div className="contactFormInput">
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="name">Name:</label>
           <input type="text" id="name" onChange={handleOnchangeForm} maxLength={50}/>
         </div>
         <div className="contactFormInput">
-          <label htmlFor="email">Correo:</label>
+          <label htmlFor="email">Email:</label>
           <input type="email" id="email" onChange={handleOnchangeForm} maxLength={80}/>
         </div>
         <div className="contactFormInput">
-          <label htmlFor="phone">Telefono:</label>
+          <label htmlFor="phone">Phone:</label>
           <input type="text" id="phone" onChange={handleOnchangeForm} maxLength={80}/>
         </div>
       </div>
       <div className="contactFormSubmitButton">
-        <button disabled={validForm} onClick={handleSendFormButton}>Finalizar compra</button>
+        <button disabled={validForm} onClick={handleSendFormButton}>Finish</button>
       </div>
     </div>
   );
